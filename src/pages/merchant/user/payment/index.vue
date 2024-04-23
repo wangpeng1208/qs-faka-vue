@@ -14,7 +14,7 @@
       </template>
       <template #status="{ row }">
         <!-- 状态变更 -->
-        <t-switch v-model="row.status" :custom-value="[1, 0]" @change="handleChangeStatus(row.status, row.channel_id)" />
+        <t-switch v-model="row.status" :custom-value="[1, 0]" disabled />
       </template>
       <!-- is_custom -->
       <template #is_custom="{ row }">
@@ -30,22 +30,11 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { MessagePlugin } from 'tdesign-vue-next';
 import { ref } from 'vue';
 
 import { baseUrl } from '@/api/base';
-import { changeStatus, list } from '@/api/merchant/user/payment';
+import { list } from '@/api/merchant/user/payment';
 
-// 自定义收款渠道配置
-
-const handleChangeStatus = async (status: number, channelId: number) => {
-  const res = await changeStatus({ status, channel_id: channelId });
-  if (res.code) {
-    MessagePlugin.success('操作成功');
-  } else {
-    MessagePlugin.error(res.msg);
-  }
-};
 const columns = [
   {
     width: 200,
@@ -73,7 +62,7 @@ const columns = [
     width: 120,
     colKey: 'is_custom',
     title: '通道',
-  }
+  },
 ];
 const lists = ref();
 // 获取商户收款渠道列表

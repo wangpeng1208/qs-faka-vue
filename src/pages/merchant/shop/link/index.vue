@@ -12,8 +12,8 @@
       </t-form-item>
       <t-form-item label="绿标短链" tips="绿标短链接打开就是店铺长链接，强烈建议使用绿标短链接作为访问链接;如果在朋友圈等地方打广告请发【绿标短链】这个链接，这样可以让您的朋友直接进入您的店铺">
         <t-space>
-          <t-link theme="primary" :href="user.short_link" target="_blank"> {{ user.short_link }} </t-link>
-          <t-tag theme="primary" variant="light" size="small" class="tag" @click="copyText(user.short_link)">
+          <t-link theme="primary" :href="user?.short_link" target="_blank"> {{ user?.short_link }} </t-link>
+          <t-tag theme="primary" variant="light" size="small" class="tag" @click="copyText(user?.short_link)">
             <template #icon> <file-copy-icon /> </template>
             复制
           </t-tag>

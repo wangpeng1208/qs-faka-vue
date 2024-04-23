@@ -29,7 +29,19 @@ for (let i = 0; i <= 15; i++) {
 /**
  * 设置浏览器标题
  */
-export function setTitleFromRoute() {
+export async function setTitleFromRoute() {
+  if (router.currentRoute.value.path === '/') {
+    // 如果是首页
+    const response = await fetch(window.location.origin);
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const title = doc.querySelector('title')?.textContent || '';
+    nextTick(() => {
+      document.title = title;
+    });
+    return;
+  }
   if (typeof router.currentRoute.value.meta.title !== 'string') {
     return;
   }

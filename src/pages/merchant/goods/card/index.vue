@@ -49,7 +49,6 @@
       </template>
     </t-table>
 
-    <export-cards ref="exportCardRef" />
     <card-detail ref="cardDetailRef" />
   </t-card>
 </template>
@@ -61,7 +60,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { DownloadIcon, SearchIcon } from 'tdesign-icons-vue-next';
+import { SearchIcon } from 'tdesign-icons-vue-next';
 import { DialogPlugin, MessagePlugin } from 'tdesign-vue-next';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
@@ -72,7 +71,6 @@ import { goodList } from '@/api/merchant/goods/good';
 import Result from '@/components/result/index.vue';
 import { table } from '@/hooks/table';
 
-import ExportCards from '../components/ExportCards.vue';
 import { listsColumns, statusList } from './constant';
 import CardDetail from './detail.vue';
 
@@ -215,7 +213,6 @@ const batchclearGoodsCards = async () => {
     },
   });
 };
-
 </script>
 
 <style lang="less" scoped>

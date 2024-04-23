@@ -114,18 +114,6 @@
         <t-form-item label="库存预警" name="inventory_notify" tips="设置后请确保邮箱正确，否则无法接收邮件">
           <wp-check-tag v-model="formData.inventory_notify" :items="TRUEFALSESWITCH" />
         </t-form-item>
-        <t-divider align="center" dashed>代理销售</t-divider>
-        <t-form-item label="开启代理销售" name="can_proxy" tips="">
-          <wp-check-tag v-model="formData.can_proxy" :items="TRUEFALSESWITCH" />
-        </t-form-item>
-
-        <t-form-item v-if="formData.can_proxy == 1" label="代理成本价" name="proxy_price" tips="代理成本价，修改会直接影响商家代理商品的价格，如5元改为6元，则代理该商品的所有代理的终端售价均增加1元。">
-          <t-input v-model="formData.proxy_price" placeholder="请输入起购数量" :style="{ width: '600px' }" size="medium" />
-        </t-form-item>
-
-        <t-form-item v-if="formData.can_proxy == 1" label="代理最低加价" name="proxy_price_add" tips="若设置为1, 代理则最低加价1块钱出售（控价）">
-          <t-input v-model="formData.proxy_price_add" placeholder="代理最低加价" :style="{ width: '600px' }" size="medium" />
-        </t-form-item>
 
         <t-form-item label="商品排序" name="sort" tips=""> <t-input-number v-model="formData.sort" :min="0" theme="normal" placeholder="" :style="{ width: '600px' }" size="medium" /> </t-form-item>
       </div>

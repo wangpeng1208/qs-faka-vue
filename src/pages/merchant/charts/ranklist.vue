@@ -8,7 +8,6 @@
           </template>
         </t-input>
         <t-button theme="default" variant="outline" @click="fetchData">查询</t-button>
-        <t-button @click="exportData">导出数据</t-button>
       </t-space>
     </div>
     <t-base-table :data="list" :columns="COLUMNS" :row-key="rowKey" vertical-align="top" :hover="list.length > 0 ? true : false" :pagination="pagination" :selected-row-keys="selectedRowKeys" :loading="dataLoading" table-layout="auto" max-height="auto" :header-affixed-top="headerAffixedTop" @page-change="rehandlePageChange" @change="rehandleChange" @select-change="rehandleSelectChange">
@@ -94,11 +93,6 @@ const fetchData = async () => {
       dataLoading.value = false;
     }
   }
-};
-
-const exportData = async () => {
-  searchData.action = 'export';
-  fetchData();
 };
 
 onMounted(() => {

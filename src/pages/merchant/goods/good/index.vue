@@ -53,7 +53,6 @@
     </t-base-table>
     <t-loading :loading="loading" size="small" fullscreen />
     <good-link ref="goodLinkRef" />
-    <export-cards ref="exportCardsRef" />
   </t-card>
 </template>
 
@@ -76,7 +75,6 @@ import { prefix } from '@/config/global';
 import { useSettingStore } from '@/store';
 import { formatTime } from '@/utils/date';
 
-import ExportCards from '../components/ExportCards.vue';
 import GoodLink from '../components/GoodsLink.vue';
 import { COLUMNS } from './constant';
 
