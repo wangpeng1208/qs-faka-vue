@@ -205,7 +205,7 @@
       </div>
     </div>
 
-    <div class="tongji_box d-none d-lg-block">
+    <!-- <div class="tongji_box d-none d-lg-block">
       <img src="./css/img/tu_zuo.35365c2.png" class="touts" /> <img src="./css/img/tu_you.1cfc770.png" class="touts" />
       <div class="tongji container">
         <div class="tongji_hide">
@@ -257,7 +257,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="home-join">
       <div class="container">
