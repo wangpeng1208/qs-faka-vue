@@ -152,4 +152,7 @@ const getLogo = () => {
 :deep(.t-default-menu.t-is-collapsed .t-menu__logo > *) {
   margin: 0 var(--td-comp-margin-l);
 }
+:deep(.t-default-menu__inner .t-menu__logo:not(:empty)) {
+  height: var(--td-comp-size-xxxl);
+}
 </style>
