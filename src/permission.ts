@@ -15,8 +15,9 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start();
   const templateStore = getSiteStore();
   // 如果本地不存在site则请求网站基础信息
-  if (!templateStore.getSiteUrl) {
+  if (!sessionStorage.getItem('hasFetchedSiteInfo')) {
     await templateStore.getSiteConfig();
+    sessionStorage.setItem('hasFetchedSiteInfo', 'true');
   }
   if (to.path === '/merchant/login' || to.path === '/admin/login') {
     next();
