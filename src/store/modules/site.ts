@@ -32,6 +32,7 @@ export const useSiteStore = defineStore('site', {
     getPcTemplate: (state) => state.config?.pc_template,
     getMobileTemplate: (state) => state.config?.mobile_template,
     getSiteLogo: (state) => state.config?.site_logo,
+    getSiteMerchantLogo: (state) => state.config?.merchant_logo,
     getSiteMerchantLogoSm: (state) => state.config?.merchant_logo_sm,
     getSiteStatus: (state) => state.config?.site_status,
     getSiteUrl: (state) => state.config?.site_domain,

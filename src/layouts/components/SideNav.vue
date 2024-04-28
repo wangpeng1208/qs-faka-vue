@@ -40,7 +40,7 @@ const changeCollapsed = () => {
   });
 };
 const siteStore = useSiteStore();
-const AssetLogoFull = siteStore.getSiteLogo;
+const AssetLogoFull = siteStore.getSiteMerchantLogo;
 const AssetLogo = siteStore.getSiteMerchantLogoSm;
 const MIN_POINT = 992 - 1;
 
