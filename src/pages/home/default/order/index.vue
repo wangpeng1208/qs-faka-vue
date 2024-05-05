@@ -95,11 +95,18 @@
                 <t-space>
                   <t-button v-if="outCards" @click="dumpCards">导出卡密</t-button>
                   <t-button v-if="outCards" tip="点击复制" @click="constOutCards">复制卡密</t-button>
-                  <t-button @clink="qqChat">联系商家</t-button>
                 </t-space>
               </div>
               <div style="text-align: center; padding: 20px; margin: 20px">
                 <div id="copyText" v-html="outCardsHtml"></div>
+                <div class="remark">
+                  使用说明：
+                  <div v-html="goods.remark"></div>
+                </div>
+                <div class="remark">
+                  联系商家:
+                  <div v-for="(item, index) in shopContact" :key="index">{{ index }} : {{ item }}</div>
+                </div>
               </div>
             </div>
           </t-col>
@@ -176,8 +183,13 @@ const order = ref({
 const paytype = ref('');
 const goods = ref({
   name: '',
+  remark: '',
 });
-const userQq = ref('');
+const shopContact = ref({
+  wechat: '',
+  mobile: '',
+  qq: '',
+});
 const loading = ref(false);
 const visibleModal = ref(false);
 const pwd = ref('');
@@ -231,7 +243,7 @@ const orderQuery = async () => {
       outCardsHtml.value = outCards.value.replace(/\n/g, '<br />');
       paytype.value = res.data.paytype;
       goods.value = res.data.goods;
-      userQq.value = res.data.user.qq;
+      shopContact.value = res.data.shop.shop_contact;
       orderQueryStatus.value = true;
       visibleModal.value = false;
       pwd.value = '';
@@ -352,5 +364,10 @@ const qqChat = () => {
   box-shadow:
     0 1px 6px rgba(0, 0, 0, 0.117647),
     0 1px 4px rgba(0, 0, 0, 0.117647);
+}
+.remark {
+  padding: 10px;
+  background: #f5f5f5;
+  border-top: 1px solid #f2f2f2;
 }
 </style>
