@@ -14,7 +14,7 @@
       <t-descriptions-item label="总价">{{ fetchData.total_price }}</t-descriptions-item>
       <t-descriptions-item label="总成本价">{{ fetchData.total_cost_price }}</t-descriptions-item>
       <t-descriptions-item label="取卡密码">
-        {{ fetchData.take_card_type === 1 ? fetchData.take_card_password : '未设置' }}
+        {{ fetchData.take_card_type === 2 ? fetchData.take_card_password : '未设置' }}
       </t-descriptions-item>
       <t-descriptions-item label="联系方式">{{ fetchData.contact }}</t-descriptions-item>
       <t-descriptions-item label="邮件通知">
