@@ -136,7 +136,7 @@ const labelAccount = () => {
 
 // 禁用 allow_update=0 且 account 不为空
 const disabled = computed(() => {
-  if (formData.allow_update === 0 && formData.account !== '') {
+  if (formData.allow_update === 0) {
     return true;
   }
   return false;
