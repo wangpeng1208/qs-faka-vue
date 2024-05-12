@@ -44,7 +44,7 @@
             </t-form-item>
 
             <t-form-item label="收款二维码" name="collect_img">
-              <wp-upload theme="image" :initial="formData" app="merchant" name="collect_img" :data="{ type: 'image' }" />
+              <wp-upload theme="image" :initial="formData" app="merchant" name="collect_img" :data="{ type: 'image' }" @update="handleUpdateImage" />
             </t-form-item>
             <!-- 表单内容 -->
             <t-form-item v-if="!disabled">
@@ -169,6 +169,7 @@ const FORM_RULES: Record<string, FormRule[]> = {
     { required: true, message: '请输入身份证号' },
     { pattern: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/, message: '请输入正确的身份证号' },
   ],
+  collect_img: [{ required: true, message: '请上传收款二维码' }],
 };
 const form = ref(null);
 const onSubmit = async () => {
@@ -187,6 +188,10 @@ const onSubmit = async () => {
       MessagePlugin.error(res.msg);
     }
   }
+};
+const handleUpdateImage = ({ name, url }: any) => {
+  // @ts-ignore
+  formData[name] = url;
 };
 </script>
 <style lang="less" scoped>
