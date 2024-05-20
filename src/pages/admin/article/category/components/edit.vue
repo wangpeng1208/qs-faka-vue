@@ -50,7 +50,7 @@ const formRef = ref();
 const visible = ref(false);
 const title = ref('');
 const init = (row: any) => {
-  title.value = row?.id > 0 ? '编辑文章' : '添加文章';
+  title.value = row?.id > 0 ? '编辑分类' : '添加分类';
   formData.value = row?.id > 0 ? { ...row } : { ...DATA };
 
   visible.value = true;
