@@ -71,10 +71,12 @@ const handleChange = (
 const visible = ref(false);
 const title = ref('添加文章');
 const init = (row: any) => {
-  if (row?.id > 0) {
+  // 创建 row 的深拷贝
+  const rowCopy = JSON.parse(JSON.stringify(row));
+  if (rowCopy?.id > 0) {
     title.value = '编辑文章';
-    row.create_at *= 1000;
-    formData.value = { ...row };
+    rowCopy.create_at *= 1000;
+    formData.value = { ...rowCopy };
   } else {
     title.value = '添加文章';
     formData.value = { ...DATA };
@@ -86,7 +88,6 @@ const init = (row: any) => {
 defineExpose({
   init,
 });
-
 
 const FORM_RULES: Record<string, FormRule[]> = {
   cate_id: [{ required: true, message: '必填', type: 'error' }],
