@@ -83,7 +83,7 @@
             <p>1.提交投诉后,对应订单的款项将被平台冻结,不会给卖家结算</p>
             <p>2.如投诉在24小时内未解决,平台客服将介入判定</p>
             <p>
-              3.平台客服QQ：<span @click="openQq()">{{ siteConfig.site_info_qq }}</span>
+              3.平台客服QQ：<span>{{ siteConfig.site_info_qq }}</span>
             </p>
           </div>
           <div class="plaint-btn">
@@ -186,9 +186,6 @@ const noticeParent = () => {
 };
 const siteStore = useSiteStore();
 const siteConfig = computed(() => siteStore.config);
-const openQq = () => {
-  // window.open(`http://wpa.qq.com/msgrd?v=3&uin=${siteConfig.site_info_qq}&site=qq&menu=yes`);
-};
 
 const params = reactive({
   trade_no: '',
