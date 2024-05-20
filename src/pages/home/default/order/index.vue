@@ -286,10 +286,6 @@ const dumpCards = () => {
 const constOutCards = () => {
   copyText(outCards.value);
 };
-
-const qqChat = () => {
-  window.location.href = `tencent://message/?uin=${userQq.value}&Site=${userQq.value}&Menu=yes`;
-};
 </script>
 
 <style lang="less" scoped>
