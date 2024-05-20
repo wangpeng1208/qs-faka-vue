@@ -1,9 +1,10 @@
-import type { App } from 'vue';
+import { App, defineAsyncComponent } from 'vue';
 
-import WpEditor from '@/components/editor/index.vue';
-import WpImage from '@/components/image/index.vue';
-import WpCheckTag from '@/components/tag/checkTag.vue';
-import WpUpload from '@/components/upload/index.vue';
+// 异步加载组件
+const WpEditor = defineAsyncComponent(() => import('@/components/editor/index.vue'));
+const WpImage = defineAsyncComponent(() => import('@/components/image/index.vue'));
+const WpCheckTag = defineAsyncComponent(() => import('@/components/tag/checkTag.vue'));
+const WpUpload = defineAsyncComponent(() => import('@/components/upload/index.vue'));
 
 export default (app: App<Element>) => {
   app.component('WpImage', WpImage);
