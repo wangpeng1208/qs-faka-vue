@@ -87,20 +87,15 @@ router.beforeEach(async (to, from, next) => {
     } else {
       next(`/`);
     }
+  } else if (whiteListRouters.indexOf(to.name as string) !== -1) {
+    next();
   } else {
-    /* white list router */
-    if (whiteListRouters.indexOf(to.name as string) !== -1) {
-      // 请求网站配置
-      await templateStore.getSiteConfig();
-      next();
-    } else {
-      next({
-        path: '/',
-        query: { redirect: encodeURIComponent(to.fullPath) },
-      });
-    }
-    NProgress.done();
+    next({
+      path: '/404',
+      // query: { redirect: encodeURIComponent(to.fullPath) },
+    });
   }
+  NProgress.done();
 });
 
 router.afterEach((to) => {
