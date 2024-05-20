@@ -205,60 +205,6 @@
       </div>
     </div>
 
-    <!-- <div class="tongji_box d-none d-lg-block">
-      <img src="./css/img/tu_zuo.35365c2.png" class="touts" /> <img src="./css/img/tu_you.1cfc770.png" class="touts" />
-      <div class="tongji container">
-        <div class="tongji_hide">
-          <span>{{ siteConfig?.site_name }}致力打造做最稳定的寄售平台</span> <span></span>
-        </div>
-        <div class="daojis_box">
-          <div class="hidex">
-            <div>
-              <img src="./css/img/down.png" />
-              <span>
-                <p>稳定运营</p>
-                <p>Robust operation</p>
-              </span>
-            </div>
-            <div>
-              <img src="./css/img/card.png" />
-              <span>
-                <p>成功发卡</p>
-                <p>Quantity of card issuing</p>
-              </span>
-            </div>
-            <div>
-              <img src="./css/img/message.png" />
-              <span>
-                <p>服务商户</p>
-                <p>Service business</p>
-              </span>
-            </div>
-          </div>
-          <div class="daojis_body">
-            <div class="fw_time_box">
-              <span>1</span>
-              <p>年</p>
-              <span>1</span>
-              <p>月</p>
-              <span>1</span><span>2</span>
-              <p>日</p>
-              <span>1</span><span>3</span>
-              <p>时</p>
-              <span>3</span><span>2</span>
-              <p>秒</p>
-            </div>
-            <div id="num_card" class="cg">
-              <span>{{ indexUserCount.CardsSum }}</span> <span>张</span>
-            </div>
-            <div id="num_user" class="cg">
-              <span>{{ indexUserCount.userCount }}</span> <span>户</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="home-join">
       <div class="container">
         <dl>
@@ -280,10 +226,9 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { indexCount } from '@/api/home/index';
 import { useSiteStore } from '@/store';
 
 import CFooter from './components/Footer.vue';
@@ -292,19 +237,6 @@ import CHeader from './components/Header.vue';
 const siteStore = useSiteStore();
 const siteConfig = computed(() => siteStore.config);
 const router = useRouter();
-const indexUserCount = ref({
-  CardsSum: 0,
-  userCount: 0,
-});
-const getIndxCount = async () => {
-  const res = await indexCount();
-  indexUserCount.value = res.data;
-};
-
-// 每5s刷新一次
-const jsq = setInterval(() => {
-  getIndxCount();
-}, 5000);
 
 const currentTab = ref('index');
 const goPage = (name: string, value: any) => {
@@ -316,12 +248,6 @@ const goPage = (name: string, value: any) => {
     },
   });
 };
-onMounted(() => {
-  getIndxCount();
-});
-onBeforeUnmount(() => {
-  clearInterval(jsq);
-});
 </script>
 
 <style lang="less" scoped>

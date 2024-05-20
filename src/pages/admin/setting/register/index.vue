@@ -28,9 +28,6 @@
       <t-form-item v-if="formData.site_register_need_mobile" label="验证手机号码" name="site_register_need_mobile_check" tips="是否验证 手机短信验证码">
         <t-radio-group v-model="formData.site_register_need_mobile_check" :options="options" />
       </t-form-item>
-      <t-form-item label="每日最大次数" name="site_register_sms_max" tips="注册短信 每日最大请求次数, 0表示不限制">
-        <t-input-number v-model="formData.site_register_smscode_max_count" theme="normal" min="0" clearable placeholder="请输入注册短信 每日最大请求次数" suffix="次" />
-      </t-form-item>
       <!-- 注册短信 发送频率限制 -->
       <t-form-item label="短信发送频率" name="site_register_smscode_max_time" tips="注册短信 发送频率限制, 0表示不限制;单位是秒，建议设置为60秒">
         <t-input-number v-model="formData.site_register_smscode_max_time" theme="normal" min="0" clearable placeholder="请输入注册短信 发送频率限制" suffix="秒" />
